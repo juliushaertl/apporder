@@ -1,6 +1,6 @@
 <div class="section" id="apporder">
     <h2><?php p($l->t('App Order')) ?></h2>
-    <p><?php p($l->t('Default order for all users')) ?></p>
+    <p><?php p($l->t('Set default order for all users')) ?></p>
     <ul id="appsorter">
     <?php foreach($_['nav'] as $entry) { ?>
         <li>
@@ -11,4 +11,5 @@
         </li>
     <?php } ?>
     </ul>
+    <em>Drag the app icons to change their order.</em>
 </div>
