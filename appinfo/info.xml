@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<info>
+    <id>apporder</id>
+    <name>AppOrder</name>
+    <description>Sort apps in the menu with drag and drop</description>
+    <version>0.1.0</version>
+    <licence>AGPL</licence>
+    <author>jus</author>
+    <dependencies>
+        <owncloud min-version="7.0" max-version="9.1" />
+    </dependencies>
+    <repository type="git">https://github.com/juliushaertl/apporder.git</repository>
+    <ocsid></ocsid>
+</info>
+
