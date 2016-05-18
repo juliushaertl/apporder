@@ -7,7 +7,7 @@ use \OCA\AppOrder\Service\ConfigService;
 
 class Application extends App {
 
-    public function __construct(array $urlParams=array(), NavigationManager $nav){
+    public function __construct(array $urlParams=array(), \OCP\INavigationManager $nav){
         parent::__construct('apporder', $urlParams);
         $container = $this->getContainer();
         $container->registerService('ConfigService', function($c) {
