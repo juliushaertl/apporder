@@ -6,3 +6,5 @@ AppOrder works with the default owncloud menu as well as with the direct_menu
 app.
 
 ![AppOrder in Action](https://bitgrid.net/~jus/apporder.gif)
+
+**This app is still work in progress.**
