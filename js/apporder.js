@@ -3,7 +3,6 @@ $(function() {
     var app_menu = $('#apps ul');
     if(!app_menu.length)
         return;
-    app_menu.hide();
 
     // restore existing order
     $.get( "/apps/apporder/ajax/order.php", { requesttoken: oc_requesttoken}, function(data) {
@@ -24,7 +23,6 @@ $(function() {
         $.each(order,function(order,value) {
             app_menu.prepend(available_apps[value]);
         })
-        app_menu.show();
     });
 
     // make app menu sortable
