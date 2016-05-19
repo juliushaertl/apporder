@@ -23,24 +23,45 @@ class SettingsController extends Controller{
     }
 
     public function adminIndex(){
+        $navigation = $this->navigationManager->getAll();
+        $order = json_decode($this->appConfig->getAppValue('order'));
+        $nav = $this->matchOrder($navigation, $order);
         return new TemplateResponse(
             $this->appName, 
             'admin',
-            ["nav" => $this->navigationManager->getAll()],
+            ["nav" => $nav],
             'blank'
         );
     }
 
-    /**
-     * @NoAdminRequired
-     */
-    public function getOrder(){
+    private function getAppOrder() {
         $order_user = $this->appConfig->getUserValue('order', $this->userId);
         $order_default = $this->appConfig->getAppValue('order');
         if ($order_user !== null && $order_user !== "")
             $order = $order_user;
         else
             $order = $order_default;
+        return $order;
+    }
+
+    private function matchOrder($nav, $order) {
+        $nav_tmp = array();
+        $result = array();
+        foreach($nav as $app)
+            $nav_tmp[$app['href']] = $app;
+        foreach($order as $app)
+            $result[$app] = $nav_tmp[$app];
+        foreach($nav as $app)
+            if(!array_key_exists($app['href'], $result))
+                $result[$app['href']] = $app;
+        return $result;
+    }
+
+    /**
+     * @NoAdminRequired
+     */
+    public function getOrder(){
+        $order = $this->getAppOrder();
         return array('status' => 'success', 'order' => $order);
     }
 
