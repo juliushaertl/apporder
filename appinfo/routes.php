@@ -1,7 +1,7 @@
 <?php
 
 namespace OCA\AppOrder;
-$app = new AppInfo\Application(array(), \OC::$server->getNavigationManager());
+$app = new AppInfo\Application();
 $app->registerRoutes($this, [
     'routes' => [
         ['name' => 'settings#getOrder', 'url' => 'ajax/order.php', 'verb' => 'GET'],
