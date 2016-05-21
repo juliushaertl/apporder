@@ -72,7 +72,7 @@ class SettingsController extends Controller{
         $this->appConfig->setUserValue('order', $this->userId, $order);
         $response = array(
             'status' => 'success',
-            'data' => array('message'=> $this->l10n->t('User order saved successfully.')),
+            'data' => array('message'=> 'User order saved successfully.'),
             'order' => $order
         );
         return $response;
