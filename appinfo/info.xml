@@ -3,7 +3,7 @@
     <id>apporder</id>
     <name>AppOrder</name>
     <description>Sort apps in the menu with drag and drop</description>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
     <licence>AGPL</licence>
     <author>jus</author>
     <dependencies>
