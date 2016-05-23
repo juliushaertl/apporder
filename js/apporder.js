@@ -5,7 +5,7 @@ $(function() {
         return;
 
     // restore existing order
-    $.get( "/apps/apporder/ajax/order.php", { requesttoken: oc_requesttoken}, function(data) {
+    $.get(OC.filePath('apporder','ajax','order.php'), { requesttoken: oc_requesttoken}, function(data) {
         var json = data.order;
         try {
             var order = JSON.parse( json ).reverse();
@@ -37,7 +37,7 @@ $(function() {
 
             var json = JSON.stringify(items);
             localStorage.setItem("apporder-order", json);
-            $.get("/apps/apporder/ajax/personal.php", { order: json, requesttoken: oc_requesttoken}, function(data) {});
+            $.get(OC.filePath('apporder','ajax','personal.php'), { order: json, requesttoken: oc_requesttoken}, function(data) {});
         }
     });
 
@@ -51,7 +51,7 @@ $(function() {
                 })
 
             var json = JSON.stringify(items);
-            $.get( "/apps/apporder/ajax/admin.php", { order: json, requesttoken: oc_requesttoken}, function(data) {});
+            $.get(OC.filePath('apporder','ajax','admin.php'), { order: json, requesttoken: oc_requesttoken}, function(data) {});
         }
     });
 });
