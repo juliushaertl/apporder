@@ -1,0 +1,21 @@
+filter:
+    excluded_paths:
+        - 'templates/*'
+        - 'css/*'
+imports:
+    - php
+    - javascript
+
+tools:
+    external_code_coverage:
+        timeout: 300
+
+checks:
+    php:
+        # not helpful because there is no setting to tweek the threshold
+        duplication: false
+        # this is not working properly with core exceptions
+        catch_class_exists: false
+        avoid_tab_indentation: true
+        line_length:
+            max_length: '80'

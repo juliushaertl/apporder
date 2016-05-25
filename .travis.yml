@@ -1,0 +1,40 @@
+sudo: false
+language: php
+php:
+    - 5.6
+    - 7
+env:
+    global:
+        - DB=sqlite
+    matrix:
+        - CORE_BRANCH=master
+        - CORE_BRANCH=stable9
+
+matrix:
+    fast_finish: true
+
+before_install:
+    # install core
+    - cd ../
+    - git clone https://github.com/owncloud/core.git --recursive --depth 1 -b $CORE_BRANCH owncloud
+    - mv apporder owncloud/apps/
+
+before_script:
+    # fill owncloud with default configs and enable apporder
+    - cd owncloud
+    - mkdir data
+    - ./occ maintenance:install --database-name oc_autotest --database-user oc_autotest --admin-user admin --admin-pass admin --database $DB --database-pass=''
+    - ./occ app:enable apporder
+    - ./occ app:check-code apporder
+    - php -S localhost:8080 &
+    - cd apps/apporder
+
+script:
+    - make test
+
+after_failure:
+    - cat ../../data/owncloud.log
+
+after_success:
+    - wget https://scrutinizer-ci.com/ocular.phar
+    - php ocular.phar code-coverage:upload --format=php-clover build/php-unit.clover
