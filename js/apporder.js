@@ -37,7 +37,9 @@ $(function() {
 
             var json = JSON.stringify(items);
             localStorage.setItem("apporder-order", json);
-            $.get(OC.filePath('apporder','ajax','personal.php'), { order: json, requesttoken: oc_requesttoken}, function(data) {});
+            $.get(OC.filePath('apporder','ajax','personal.php'), { order: json, requesttoken: oc_requesttoken}, function(data) {
+                $(event.srcElement).fadeTo('fast', 0.5).fadeTo('fast', 1.0);
+            });
         }
     });
 
@@ -49,9 +51,10 @@ $(function() {
                     var item = $(el).find('a').attr('href');
                     items.push(item)
                 })
-
             var json = JSON.stringify(items);
-            $.get(OC.filePath('apporder','ajax','admin.php'), { order: json, requesttoken: oc_requesttoken}, function(data) {});
+            $.get(OC.filePath('apporder','ajax','admin.php'), { order: json, requesttoken: oc_requesttoken}, function(data) {
+                $(event.srcElement).effect("highlight", {}, 1000);
+            });
         }
     });
 });
