@@ -34,7 +34,7 @@ class SettingsController extends Controller{
         );
     }
 
-    private function getAppOrder() {
+    public function getAppOrder() {
         $order_user = $this->appConfig->getUserValue('order', $this->userId);
         $order_default = $this->appConfig->getAppValue('order');
         if ($order_user !== null && $order_user !== "")
@@ -44,7 +44,7 @@ class SettingsController extends Controller{
         return $order;
     }
 
-    private function matchOrder($nav, $order) {
+    public function matchOrder($nav, $order) {
         $nav_tmp = array();
         $result = array();
         foreach($nav as $app)
