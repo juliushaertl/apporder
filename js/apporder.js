@@ -1,6 +1,7 @@
 $(function() {
 
     var app_menu = $('#apps ul');
+    app_menu.hide();
     if(!app_menu.length)
         return;
 
@@ -12,9 +13,10 @@ $(function() {
         } catch (e) {
             var order = []
         }
-        if (order.length==0)
+        if (order.length==0) {
+            $('#apps ul').show();
             return;
-
+        }
         available_apps = {};
         app_menu.find('li').each(function() {
             var id =  $(this).find('a').attr('href');
@@ -23,6 +25,7 @@ $(function() {
         $.each(order,function(order,value) {
             app_menu.prepend(available_apps[value]);
         })
+        $('#apps ul').show();
     });
 
     // make app menu sortable
