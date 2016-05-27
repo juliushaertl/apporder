@@ -8,12 +8,13 @@ $(function() {
     // restore existing order
     $.get(OC.filePath('apporder','ajax','order.php'), { requesttoken: oc_requesttoken}, function(data) {
         var json = data.order;
+        var order = []
         try {
             var order = JSON.parse( json ).reverse();
         } catch (e) {
-            var order = []
+            order = [];
         }
-        if (order.length==0) {
+        if (order.length === 0) {
             $('#apps ul').show();
             return;
         }
@@ -24,7 +25,7 @@ $(function() {
         });
         $.each(order,function(order,value) {
             app_menu.prepend(available_apps[value]);
-        })
+        });
         $('#apps ul').show();
     });
 
@@ -35,8 +36,8 @@ $(function() {
             var items = [];
             $("#apps ul").children().each(function(i,el){
                 var item = $(el).find('a').attr('href');
-                items.push(item)
-            })
+                items.push(item);
+            });
 
             var json = JSON.stringify(items);
             localStorage.setItem("apporder-order", json);
@@ -53,7 +54,7 @@ $(function() {
                 $("#appsorter").children().each(function(i,el){
                     var item = $(el).find('a').attr('href');
                     items.push(item)
-                })
+                });
             var json = JSON.stringify(items);
             $.get(OC.filePath('apporder','ajax','admin.php'), { order: json, requesttoken: oc_requesttoken}, function(data) {
                 $(event.srcElement).effect("highlight", {}, 1000);
