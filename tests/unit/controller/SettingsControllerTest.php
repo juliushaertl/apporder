@@ -19,7 +19,7 @@ class SettingsControllerTest extends \Test\TestCase {
   private $appName;
   private $controller;
   private $config;
-  public function setUp (){
+  public function setUp() {
 
     parent::setUp();
 
@@ -34,7 +34,7 @@ class SettingsControllerTest extends \Test\TestCase {
     $this->service = $this->getMockBuilder('\OCA\AppOrder\Service\ConfigService')
       ->disableOriginalConstructor()
       ->getMock();
-    $this->navigationManager = $this->getMockBuilder('\OCP\INavigationManager')->setMethods(['getAll','add','setActiveEntry'])
+    $this->navigationManager = $this->getMockBuilder('\OCP\INavigationManager')->setMethods(['getAll', 'add', 'setActiveEntry'])
       ->disableOriginalConstructor()
       ->getMock();
     $this->userId = 'admin';
@@ -91,7 +91,7 @@ class SettingsControllerTest extends \Test\TestCase {
   }
 
   public function testGetAppOrder() {
-    $nav_system= ['/app/calendar/', '/app/tasks/'];
+    $nav_system = ['/app/calendar/', '/app/tasks/'];
     $nav_user = ['/app/files/', '/app/calendar/', '/app/tasks/'];
     $this->service->expects($this->once())
       ->method('getAppValue')
@@ -105,7 +105,7 @@ class SettingsControllerTest extends \Test\TestCase {
     $this->assertEquals(json_encode($nav_user), $result);
   }
   public function testGetAppOrderNoUser() {
-    $nav_system= ['/app/calendar/', '/app/tasks/'];
+    $nav_system = ['/app/calendar/', '/app/tasks/'];
     $nav_user = '';
     $this->service->expects($this->once())
       ->method('getAppValue')

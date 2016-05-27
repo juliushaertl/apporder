@@ -9,7 +9,7 @@ class ConfigService {
     private $config;
     private $appName;
 
-    public function __construct(IConfig $config, $appName){
+    public function __construct(IConfig $config, $appName) {
         $this->config = $config;
         $this->appName = $appName;
     }
