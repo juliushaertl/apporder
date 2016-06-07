@@ -9,6 +9,8 @@ env:
     matrix:
         - CORE_BRANCH=master
         - CORE_BRANCH=stable9
+        - REPO=owncloud/core
+        - REPO=nextcloud/servier
 
 matrix:
     fast_finish: true
@@ -16,12 +18,12 @@ matrix:
 before_install:
     # install core
     - cd ../
-    - git clone https://github.com/owncloud/core.git --recursive --depth 1 -b $CORE_BRANCH owncloud
-    - mv apporder owncloud/apps/
+    - git clone https://github.com/$REPO.git --recursive --depth 1 -b $CORE_BRANCH mainrepo
+    - mv apporder mainrepo/apps/
 
 before_script:
     # fill owncloud with default configs and enable apporder
-    - cd owncloud
+    - cd mainrepo 
     - mkdir data
     - ./occ maintenance:install --database-name oc_autotest --database-user oc_autotest --admin-user admin --admin-pass admin --database $DB --database-pass=''
     - ./occ app:enable apporder
