@@ -118,4 +118,42 @@ class SettingsControllerTest extends \Test\TestCase {
     $result = $this->controller->getAppOrder();
     $this->assertEquals(json_encode($nav_system), $result);
   }
+
+  public function testGetOrder() {
+    $nav_system = ['/app/calendar/', '/app/tasks/'];
+    $nav_user = ['/app/files/', '/app/calendar/', '/app/tasks/'];
+    $this->service->expects($this->once())
+      ->method('getAppValue')
+      ->with('order')
+      ->will($this->returnValue(json_encode($nav_system)));
+    $this->service->expects($this->once())
+      ->method('getUserValue')
+      ->with('order', $this->userId)
+      ->will($this->returnValue(json_encode($nav_user)));
+    $order = ['/app/files/', '/app/calendar/', '/app/tasks/'];
+    $result = $this->controller->getOrder();
+    $expected = array('status' => 'success', 'order' => json_encode($order));
+    $this->assertEquals($expected, $result);
+  }
+
+  public function testSavePersonal() {
+    $order = "RANDOMORDER";
+    $expected = array(
+      'status' => 'success',
+      'data' => array('message'=> 'User order saved successfully.'),
+      'order' => $order
+    );
+    $result = $this->controller->savePersonal($order);
+    $this->assertEquals($expected, $result);
+  }
+
+  public function testSaveDefaultOrder() {
+    $order = "RANDOMORDER";
+    $expected = array(
+      'status' => 'success',
+      'order' => $order
+    );
+    $result = $this->controller->saveDefaultOrder($order);
+    $this->assertEquals($expected, $result);
+  }
 }
