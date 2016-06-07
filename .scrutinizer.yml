@@ -2,8 +2,6 @@ filter:
     excluded_paths:
         - 'templates/*'
         - 'css/*'
-        - 'tests/*'
-
 imports:
     - php
     - javascript
