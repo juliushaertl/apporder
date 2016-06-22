@@ -50,7 +50,8 @@ class SettingsController extends Controller {
         foreach ($nav as $app)
             $nav_tmp[$app['href']] = $app;
         foreach ($order as $app)
-            $result[$app] = $nav_tmp[$app];
+            if(array_key_exists($app, $nav_tmp))
+                $result[$app] = $nav_tmp[$app];
         foreach ($nav as $app)
             if (!array_key_exists($app['href'], $result))
                 $result[$app['href']] = $app;
