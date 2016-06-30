@@ -5,16 +5,26 @@
 #appsorter img {
     width:14px;
     height:14px;
-    background-color: #1d2d44;
+    background-color: #cccccc;
     padding:4px;
     float:left;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+#appsorter .placeholder {
+    border: 1px dashed #aaaaaa;
+    visibility: visible;
+    width:20px;
+    height:20px;
+    margin-bottom:2px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
 }
 #appsorter a {
     display:block;
     float:left;
-    padding-bottom:2px;
+    padding-bottom:1px;
     padding-left:5px;
-}
-.ui-sortable-placeholder {
-  margin-top:-10px;
 }

@@ -49,6 +49,8 @@ $(function() {
 
     // Sorting inside settings
     $( "#appsorter" ).sortable({
+        forcePlaceholderSize: true,
+        placeholder: 'placeholder',
         stop: function( event, ui ) {
             var items = []
                 $("#appsorter").children().each(function(i,el){
