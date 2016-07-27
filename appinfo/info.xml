@@ -7,7 +7,7 @@
     <licence>AGPL</licence>
     <author>jus</author>
     <dependencies>
-        <owncloud min-version="7.0" max-version="9.1" />
+        <owncloud min-version="7.0" max-version="9.2" />
         <nextcloud min-version="9.0" max-version="11.0" />
     </dependencies>
     <repository type="git">https://github.com/juliushaertl/apporder.git</repository>
