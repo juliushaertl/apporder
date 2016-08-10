@@ -31,7 +31,7 @@ $(function() {
 
     // make app menu sortable
     $( "#apps ul" ).sortable({
-        handle: 'img',
+        handle: 'a',
         stop: function( event, ui ) {
             var items = [];
             $("#apps ul").children().each(function(i,el){
