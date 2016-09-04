@@ -38,24 +38,30 @@ class Util {
 	public function getAppOrder() {
 		$order_user = $this->appConfig->getUserValue('order', $this->userId);
 		$order_default = $this->appConfig->getAppValue('order');
-		if ($order_user !== null && $order_user !== "")
+		if ($order_user !== null && $order_user !== "") {
 			$order = $order_user;
-		else
+		} else {
 			$order = $order_default;
+		}
 		return $order;
 	}
 
 	public function matchOrder($nav, $order) {
 		$nav_tmp = array();
 		$result = array();
-		foreach ($nav as $app)
+		foreach ($nav as $app) {
 			$nav_tmp[$app['href']] = $app;
-		foreach ($order as $app)
-			if(array_key_exists($app, $nav_tmp))
+		}
+		foreach ($order as $app) {
+			if (array_key_exists($app, $nav_tmp)) {
 				$result[$app] = $nav_tmp[$app];
-		foreach ($nav as $app)
-			if (!array_key_exists($app['href'], $result))
+			}
+		}
+		foreach ($nav as $app) {
+			if (!array_key_exists($app['href'], $result)) {
 				$result[$app['href']] = $app;
+			}
+		}
 		return $result;
 	}
 

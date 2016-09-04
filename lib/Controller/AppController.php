@@ -36,7 +36,10 @@ class AppController extends Controller {
     private $urlGenerator;
 	private $util;
 
-    public function __construct($appName, IRequest $request, IURLGenerator $urlGenerator, Util $util, $userId) {
+    public function __construct($appName,
+								IRequest $request,
+								IURLGenerator $urlGenerator,
+								Util $util, $userId) {
         parent::__construct($appName, $request);
         $this->userId = $userId;
         $this->urlGenerator = $urlGenerator;
