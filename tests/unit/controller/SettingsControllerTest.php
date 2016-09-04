@@ -30,7 +30,7 @@ use OCP\IConfig;
 use OCP\INavigationManager;
 use OCP\IRequest;
 
-class SettingsControllerTest extends \PHPUnit_Framework_TestCase  {
+class SettingsControllerTest extends \PHPUnit_Framework_TestCase {
 
 	/** @var IRequest */
 	private $request;
