@@ -21,11 +21,11 @@
  *
  */
 
-require_once __DIR__ . '/../../../tests/bootstrap.php';
-require_once __DIR__ . '/../appinfo/autoload.php';
+require_once __DIR__.'/../../../tests/bootstrap.php';
+require_once __DIR__.'/../appinfo/autoload.php';
 
 
-require_once __DIR__ . '/../../../lib/base.php';
+require_once __DIR__.'/../../../lib/base.php';
 if (!class_exists('PHPUnit_Framework_TestCase')) {
 	require_once('PHPUnit/Autoload.php');
 }
