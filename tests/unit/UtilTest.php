@@ -24,76 +24,78 @@
 namespace OCA\AppOrder;
 
 use OCA\AppOrder\Service\ConfigService;
-use \OCA\AppOrder\Util;
+use OCP\IConfig;
 
 class UtilTest extends \PHPUnit_Framework_TestCase {
 
-	/**
-	 * @var ConfigService
-	 */
-  private $service;
-  private $userId;
-  private $util;
-  private $config;
-  public function setUp() {
+	/** @var ConfigService */
+	private $service;
+	/** @var string */
+	private $userId;
+	/** @var Util */
+	private $util;
+	/** @var IConfig */
+	private $config;
 
-    parent::setUp();
+	public function setUp() {
 
-    $this->config = $this->getMockBuilder('OCP\IConfig')
-      ->disableOriginalConstructor()
-      ->getMock();
-    $this->service = $this->getMockBuilder('\OCA\AppOrder\Service\ConfigService')
-      ->disableOriginalConstructor()
-      ->getMock();
-    $this->userId = 'admin';
-    $this->util = new Util($this->service, $this->userId);
+		parent::setUp();
 
-  }
+		$this->config = $this->getMockBuilder('OCP\IConfig')
+			->disableOriginalConstructor()
+			->getMock();
+		$this->service = $this->getMockBuilder('\OCA\AppOrder\Service\ConfigService')
+			->disableOriginalConstructor()
+			->getMock();
+		$this->userId = 'admin';
+		$this->util = new Util($this->service, $this->userId);
 
-  public function testMatchOrder() {
-    $nav = [
-      ['href' => '/app/files/', 'name' => 'Files'],
-      ['href' => '/app/calendar/', 'name' => 'Calendar'],
-      ['href' => '/app/tasks/', 'name' => 'Tasks'],
-    ];
-    $order = ['/app/calendar/', '/app/tasks/'];
-    $result = $this->util->matchOrder($nav, $order);
-    $expected = [
-      '/app/calendar/' => ['href' => '/app/calendar/', 'name' => 'Calendar'],
-      '/app/tasks/' => ['href' => '/app/tasks/', 'name' => 'Tasks'],
-      '/app/files/' => ['href' => '/app/files/', 'name' => 'Files'],
-    ];
-    $this->assertEquals($expected, $result);
-  }
+	}
 
-  public function testGetAppOrder() {
-    $nav_system = ['/app/calendar/', '/app/tasks/'];
-    $nav_user = ['/app/files/', '/app/calendar/', '/app/tasks/'];
-    $this->service->expects($this->once())
-      ->method('getAppValue')
-      ->with('order')
-      ->will($this->returnValue(json_encode($nav_system)));
-    $this->service->expects($this->once())
-      ->method('getUserValue')
-      ->with('order', $this->userId)
-      ->will($this->returnValue(json_encode($nav_user)));
-    $result = $this->util->getAppOrder();
-    $this->assertEquals(json_encode($nav_user), $result);
-  }
+	public function testMatchOrder() {
+		$nav = [
+			['href' => '/app/files/', 'name' => 'Files'],
+			['href' => '/app/calendar/', 'name' => 'Calendar'],
+			['href' => '/app/tasks/', 'name' => 'Tasks'],
+		];
+		$order = ['/app/calendar/', '/app/tasks/'];
+		$result = $this->util->matchOrder($nav, $order);
+		$expected = [
+			'/app/calendar/' => ['href' => '/app/calendar/', 'name' => 'Calendar'],
+			'/app/tasks/' => ['href' => '/app/tasks/', 'name' => 'Tasks'],
+			'/app/files/' => ['href' => '/app/files/', 'name' => 'Files'],
+		];
+		$this->assertEquals($expected, $result);
+	}
 
-  public function testGetAppOrderNoUser() {
-    $nav_system = ['/app/calendar/', '/app/tasks/'];
-    $nav_user = '';
-    $this->service->expects($this->once())
-      ->method('getAppValue')
-      ->with('order')
-      ->will($this->returnValue(json_encode($nav_system)));
-    $this->service->expects($this->once())
-      ->method('getUserValue')
-      ->with('order', $this->userId)
-      ->will($this->returnValue($nav_user));
-    $result = $this->util->getAppOrder();
-    $this->assertEquals(json_encode($nav_system), $result);
-  }
+	public function testGetAppOrder() {
+		$nav_system = ['/app/calendar/', '/app/tasks/'];
+		$nav_user = ['/app/files/', '/app/calendar/', '/app/tasks/'];
+		$this->service->expects($this->once())
+			->method('getAppValue')
+			->with('order')
+			->will($this->returnValue(json_encode($nav_system)));
+		$this->service->expects($this->once())
+			->method('getUserValue')
+			->with('order', $this->userId)
+			->will($this->returnValue(json_encode($nav_user)));
+		$result = $this->util->getAppOrder();
+		$this->assertEquals(json_encode($nav_user), $result);
+	}
+
+	public function testGetAppOrderNoUser() {
+		$nav_system = ['/app/calendar/', '/app/tasks/'];
+		$nav_user = '';
+		$this->service->expects($this->once())
+			->method('getAppValue')
+			->with('order')
+			->will($this->returnValue(json_encode($nav_system)));
+		$this->service->expects($this->once())
+			->method('getUserValue')
+			->with('order', $this->userId)
+			->will($this->returnValue($nav_user));
+		$result = $this->util->getAppOrder();
+		$this->assertEquals(json_encode($nav_system), $result);
+	}
 
 }

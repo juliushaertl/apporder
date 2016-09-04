@@ -23,62 +23,57 @@
 
 namespace OCA\AppOrder\Tests\Unit\Controller;
 
-use OCP\IRequest;
-use OCP\AppFramework\Http\DataResponse;
+use OCA\AppOrder\Util;
 use OCP\AppFramework\Http;
-use \OCA\AppOrder\Service;
-use \OCA\AppOrder\AppInfo\Application;
-use \OCA\AppOrder\Controller;
 use OCA\AppOrder\Controller\AppController;
+use OCP\IConfig;
+use OCP\IRequest;
+use OCP\IURLGenerator;
 
-class AppControllerTest extends \Test\TestCase {
+class AppControllerTest extends \PHPUnit_Framework_TestCase {
 
-	private $container;
+	/** @var IRequest */
 	private $request;
-	private $service;
+	/** @var IURLGenerator */
 	private $urlGenerator;
+	/** @var string */
 	private $userId;
+	/** @var string */
 	private $appName;
-	/**
-	 * @var AppController
-	 */
+	/** @var AppController */
 	private $controller;
+	/** @var IConfig */
 	private $config;
+	/** @var Util */
 	private $util;
 
 	public function setUp() {
-
 		parent::setUp();
-
-		$app = new \OCA\AppOrder\AppInfo\Application();
-		$this->container = $app->getContainer();
 		$this->request = $this->getMockBuilder('OCP\IRequest')
 			->disableOriginalConstructor()
 			->getMock();
 		$this->config = $this->getMockBuilder('OCP\IConfig')
 			->disableOriginalConstructor()
 			->getMock();
-		$this->service = $this->getMockBuilder('\OCA\AppOrder\Service\ConfigService')
+		$this->util = $this->getMockBuilder('\OCA\AppOrder\Util')
 			->disableOriginalConstructor()
 			->getMock();
 		$this->urlGenerator = \OC::$server->getURLGenerator();
-		$this->util = $this->getMockBuilder('\OCA\AppOrder\Util')->disableOriginalConstructor()->getMock();
-
 		$this->userId = 'admin';
 		$this->appName = 'apporder';
 		$this->controller = new AppController(
-			$this->appName, $this->request, $this->service, $this->urlGenerator, $this->util,
+			$this->appName,
+			$this->request,
+			$this->urlGenerator,
+			$this->util,
 			$this->userId
 		);
-
 	}
 
 	public function testIndex() {
-  		$this->util->expects($this->once())
+		$this->util->expects($this->once())
 			->method('getAppOrder')
-			->willReturn(
-				json_encode(['/index.php/foo/bar', '/index.php/bar/foo'])
-			);
+			->willReturn(json_encode(['/index.php/foo/bar', '/index.php/bar/foo']));
 		$expected = new Http\RedirectResponse('/index.php/foo/bar');
 		$result = $this->controller->index();
 		$this->assertEquals($expected, $result);
@@ -89,7 +84,6 @@ class AppControllerTest extends \Test\TestCase {
 			->method('getAppOrder')
 			->willReturn("");
 		$result = $this->controller->index();
-
 		$expected = new Http\RedirectResponse('http://localhost/index.php/apps/files/');
 		$this->assertEquals($expected, $result);
 	}

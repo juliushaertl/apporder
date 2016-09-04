@@ -34,6 +34,7 @@ class Util {
 		$this->userId = $userId;
 		$this->appConfig = $appConfig;
 	}
+
 	public function getAppOrder() {
 		$order_user = $this->appConfig->getUserValue('order', $this->userId);
 		$order_default = $this->appConfig->getAppValue('order');

@@ -26,7 +26,6 @@ namespace OCA\AppOrder\Controller;
 use \OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\RedirectResponse;
 use \OCP\IRequest;
-use \OCP\INavigationManager;
 use \OCA\AppOrder\Service\ConfigService;
 use OCA\AppOrder\Util;
 use OCP\IURLGenerator;
@@ -34,14 +33,12 @@ use OCP\IURLGenerator;
 class AppController extends Controller {
 
     private $userId;
-    private $appConfig;
     private $urlGenerator;
 	private $util;
 
-    public function __construct($appName, IRequest $request, ConfigService $appConfig, IURLGenerator $urlGenerator, Util $util, $userId) {
+    public function __construct($appName, IRequest $request, IURLGenerator $urlGenerator, Util $util, $userId) {
         parent::__construct($appName, $request);
         $this->userId = $userId;
-        $this->appConfig = $appConfig;
         $this->urlGenerator = $urlGenerator;
 		$this->util = $util;
     }
