@@ -48,6 +48,7 @@ class AppController extends Controller {
 
 	/**
 	 * @NoCSRFRequired
+	 * @NoAdminRequired
 	 * @return RedirectResponse
 	 */
     public function index() {
