@@ -23,7 +23,10 @@
 
 namespace OCA\AppOrder;
 
+use OCA\AppOrder\Service\ConfigService;
+
 class Util {
+
 	private $userId;
 	private $appConfig;
 

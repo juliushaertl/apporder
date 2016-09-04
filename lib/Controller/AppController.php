@@ -25,24 +25,24 @@ namespace OCA\AppOrder\Controller;
 
 use \OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\RedirectResponse;
-use \OCP\AppFramework\Http\TemplateResponse;
 use \OCP\IRequest;
 use \OCP\INavigationManager;
 use \OCA\AppOrder\Service\ConfigService;
 use OCA\AppOrder\Util;
+use OCP\IURLGenerator;
 
 class AppController extends Controller {
 
     private $userId;
     private $appConfig;
-    private $navigationManager;
+    private $urlGenerator;
 	private $util;
 
-    public function __construct($appName, IRequest $request, ConfigService $appConfig, INavigationManager $navigationManager, Util $util, $userId) {
+    public function __construct($appName, IRequest $request, ConfigService $appConfig, IURLGenerator $urlGenerator, Util $util, $userId) {
         parent::__construct($appName, $request);
         $this->userId = $userId;
         $this->appConfig = $appConfig;
-        $this->navigationManager = $navigationManager;
+        $this->urlGenerator = $urlGenerator;
 		$this->util = $util;
     }
 
@@ -51,7 +51,12 @@ class AppController extends Controller {
 	 * @return RedirectResponse
 	 */
     public function index() {
-		$firstPage = json_decode($this->util->getAppOrder())[0];
+    	$order = json_decode($this->util->getAppOrder());
+		if($order !== null && sizeof($order)>0) {
+			$firstPage = $order[0];
+		} else {
+			return new  RedirectResponse($this->urlGenerator->linkTo('files',''));
+		}
         return new RedirectResponse($firstPage);
     }
 

@@ -16,11 +16,11 @@ class SettingsController extends Controller {
     private $navigationManager;
 	private $util;
 
-    public function __construct($appName, IRequest $request, ConfigService $appConfig, INavigationManager $navigationManager, Util $util, $userId) {
+    public function __construct($appName, IRequest $request, ConfigService $appConfig, INavigationManager $urlGenerator, Util $util, $userId) {
         parent::__construct($appName, $request);
         $this->userId = $userId;
         $this->appConfig = $appConfig;
-        $this->navigationManager = $navigationManager;
+        $this->navigationManager = $urlGenerator;
 		$this->util = $util;
     }
 

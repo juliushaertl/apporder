@@ -20,26 +20,6 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-
 namespace OCA\AppOrder\AppInfo;
 
-use \OCP\AppFramework\App;
-use \OCA\AppOrder\Service\ConfigService;
-
-class Application extends App {
-
-    public function __construct(array $urlParams = array()) {
-        parent::__construct('apporder', $urlParams);
-        $container = $this->getContainer();
-        $container->registerService('ConfigService', function($c) {
-            return new ConfigService(
-                $c->query('Config'),
-                $c->query('AppName')
-            );
-        });
-
-		\OCP\Util::addStyle('apporder', 'apporder');
-		\OCP\Util::addScript('apporder', 'apporder');
-		\OCP\App::registerAdmin('apporder', 'admin');
-    }
-}
+use OCP\AppFramework\App;
