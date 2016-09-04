@@ -55,7 +55,12 @@ class AppController extends Controller {
 		if($order !== null && sizeof($order)>0) {
 			$firstPage = $order[0];
 		} else {
-			return new  RedirectResponse($this->urlGenerator->linkTo('files',''));
+			$appId = 'files';
+			if(getenv('front_controller_active') === 'true') {
+				$firstPage = $this->urlGenerator->getAbsoluteURL('/apps/' . $appId . '/');
+			} else {
+				$firstPage = $this->urlGenerator->getAbsoluteURL('/index.php/apps/' . $appId . '/');
+			}
 		}
         return new RedirectResponse($firstPage);
     }

@@ -90,7 +90,7 @@ class AppControllerTest extends \Test\TestCase {
 			->willReturn("");
 		$result = $this->controller->index();
 
-		$expected = new Http\RedirectResponse('/apps/files/');
+		$expected = new Http\RedirectResponse('http://localhost/index.php/apps/files/');
 		$this->assertEquals($expected, $result);
 	}
 
