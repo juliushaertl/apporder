@@ -28,7 +28,7 @@ use OCP\IConfig;
 
 class ConfigServiceTest extends \PHPUnit_Framework_TestCase {
 
-	/** @var IConfig */
+	/** @var IConfig|\PHPUnit_Framework_MockObject_MockObject */
 	private $config;
 	/** @var ConfigService */
 	private $service;

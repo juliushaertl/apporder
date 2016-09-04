@@ -32,11 +32,11 @@ use OCP\IRequest;
 
 class SettingsControllerTest extends \PHPUnit_Framework_TestCase {
 
-	/** @var IRequest */
+	/** @var IRequest|\PHPUnit_Framework_MockObject_MockObject */
 	private $request;
-	/** @var ConfigService */
+	/** @var ConfigService|\PHPUnit_Framework_MockObject_MockObject */
 	private $service;
-	/** @var INavigationManager */
+	/** @var INavigationManager|\PHPUnit_Framework_MockObject_MockObject */
 	private $navigationManager;
 	/** @var string */
 	private $userId;
@@ -44,7 +44,7 @@ class SettingsControllerTest extends \PHPUnit_Framework_TestCase {
 	private $appName;
 	/** @var SettingsController */
 	private $controller;
-	/** @var IConfig */
+	/** @var IConfig|\PHPUnit_Framework_MockObject_MockObject */
 	private $config;
 	/** @var Util */
 	private $util;

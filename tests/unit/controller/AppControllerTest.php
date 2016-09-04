@@ -32,7 +32,7 @@ use OCP\IURLGenerator;
 
 class AppControllerTest extends \PHPUnit_Framework_TestCase {
 
-	/** @var IRequest */
+	/** @var IRequest|\PHPUnit_Framework_MockObject_MockObject */
 	private $request;
 	/** @var IURLGenerator */
 	private $urlGenerator;
@@ -42,9 +42,9 @@ class AppControllerTest extends \PHPUnit_Framework_TestCase {
 	private $appName;
 	/** @var AppController */
 	private $controller;
-	/** @var IConfig */
+	/** @var IConfig|\PHPUnit_Framework_MockObject_MockObject */
 	private $config;
-	/** @var Util */
+	/** @var Util|\PHPUnit_Framework_MockObject_MockObject */
 	private $util;
 
 	public function setUp() {
@@ -87,6 +87,5 @@ class AppControllerTest extends \PHPUnit_Framework_TestCase {
 		$expected = new Http\RedirectResponse('http://localhost/index.php/apps/files/');
 		$this->assertEquals($expected, $result);
 	}
-
 
 }

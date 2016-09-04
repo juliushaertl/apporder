@@ -28,13 +28,13 @@ use OCP\IConfig;
 
 class UtilTest extends \PHPUnit_Framework_TestCase {
 
-	/** @var ConfigService */
+	/** @var ConfigService|\PHPUnit_Framework_MockObject_MockObject */
 	private $service;
 	/** @var string */
 	private $userId;
 	/** @var Util */
 	private $util;
-	/** @var IConfig */
+	/** @var IConfig|\PHPUnit_Framework_MockObject_MockObject */
 	private $config;
 
 	public function setUp() {
