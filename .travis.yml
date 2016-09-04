@@ -7,9 +7,9 @@ env:
     global:
         - DB=sqlite
     matrix:
-        - CORE_BRANCH=stable9 REPO=owncloud/core
+        - CORE_BRANCH=stable9.1 REPO=owncloud/core
         - CORE_BRANCH=master REPO=owncloud/core
-        - CORE_BRANCH=stable9 REPO=nextcloud/server
+        - CORE_BRANCH=stable10 REPO=nextcloud/server
         - CORE_BRANCH=master REPO=nextcloud/server
 
 matrix:
