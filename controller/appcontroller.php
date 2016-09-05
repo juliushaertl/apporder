@@ -32,38 +32,38 @@ use OCP\IURLGenerator;
 
 class AppController extends Controller {
 
-    private $userId;
-    private $urlGenerator;
+	private $userId;
+	private $urlGenerator;
 	private $util;
 
-    public function __construct($appName,
+	public function __construct($appName,
 								IRequest $request,
 								IURLGenerator $urlGenerator,
 								Util $util, $userId) {
-        parent::__construct($appName, $request);
-        $this->userId = $userId;
-        $this->urlGenerator = $urlGenerator;
+		parent::__construct($appName, $request);
+		$this->userId = $userId;
+		$this->urlGenerator = $urlGenerator;
 		$this->util = $util;
-    }
+	}
 
 	/**
 	 * @NoCSRFRequired
 	 * @NoAdminRequired
 	 * @return RedirectResponse
 	 */
-    public function index() {
-    	$order = json_decode($this->util->getAppOrder());
-		if($order !== null && sizeof($order)>0) {
+	public function index() {
+		$order = json_decode($this->util->getAppOrder());
+		if ($order !== null && sizeof($order) > 0) {
 			$firstPage = $order[0];
 		} else {
 			$appId = 'files';
-			if(getenv('front_controller_active') === 'true') {
+			if (getenv('front_controller_active') === 'true') {
 				$firstPage = $this->urlGenerator->getAbsoluteURL('/apps/' . $appId . '/');
 			} else {
 				$firstPage = $this->urlGenerator->getAbsoluteURL('/index.php/apps/' . $appId . '/');
 			}
 		}
-        return new RedirectResponse($firstPage);
-    }
+		return new RedirectResponse($firstPage);
+	}
 
 }
