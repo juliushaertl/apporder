@@ -41,7 +41,6 @@ $(function () {
 			});
 
 			var json = JSON.stringify(items);
-			localStorage.setItem("apporder-order", json);
 			$.get(OC.filePath('apporder', 'ajax', 'personal.php'), {
 				order: json,
 				requesttoken: oc_requesttoken
