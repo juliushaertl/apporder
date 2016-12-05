@@ -7,7 +7,7 @@ $(function () {
 	app_menu.hide();
 
 	// restore existing order
-	$.get(OC.filePath('apporder', 'ajax', 'order.php'), {requesttoken: oc_requesttoken}, function (data) {
+	$.get(OC.generateUrl('/apps/apporder/getOrder'), function (data) {
 		var json = data.order;
 		var order = []
 		try {
@@ -41,9 +41,8 @@ $(function () {
 			});
 
 			var json = JSON.stringify(items);
-			$.get(OC.filePath('apporder', 'ajax', 'personal.php'), {
+			$.post(OC.generateUrl('/apps/apporder/savePersonal'), {
 				order: json,
-				requesttoken: oc_requesttoken
 			}, function (data) {
 				$(event.srcElement).fadeTo('fast', 0.5).fadeTo('fast', 1.0);
 			});
@@ -61,9 +60,8 @@ $(function () {
 				items.push(item)
 			});
 			var json = JSON.stringify(items);
-			$.get(OC.filePath('apporder', 'ajax', 'admin.php'), {
+			$.post(OC.generateUrl('/apps/apporder/saveDefaultOrder'), {
 				order: json,
-				requesttoken: oc_requesttoken
 			}, function (data) {
 				$(event.srcElement).effect("highlight", {}, 1000);
 			});

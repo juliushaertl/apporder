@@ -105,5 +105,4 @@ class SettingsController extends Controller {
 		return $response;
 	}
 
-
 }

@@ -24,8 +24,8 @@
 return [
 	'routes' => [
 		['name' => 'app#index', 'url' => '/', 'verb' => 'GET'],
-		['name' => 'settings#getOrder', 'url' => 'ajax/order.php', 'verb' => 'GET'],
-		['name' => 'settings#savePersonal', 'url' => 'ajax/personal.php', 'verb' => 'GET'],
-		['name' => 'settings#saveDefaultOrder', 'url' => 'ajax/admin.php', 'verb' => 'GET'],
+		['name' => 'settings#getOrder', 'url' => '/getOrder', 'verb' => 'GET'],
+		['name' => 'settings#savePersonal', 'url' => '/savePersonal', 'verb' => 'POST'],
+		['name' => 'settings#saveDefaultOrder', 'url' => '/saveDefaultOrder', 'verb' => 'POST'],
 	]
 ];
