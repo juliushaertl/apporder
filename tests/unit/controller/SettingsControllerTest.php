@@ -102,7 +102,35 @@ class SettingsControllerTest extends \PHPUnit_Framework_TestCase {
 		$expected = new \OCP\AppFramework\Http\TemplateResponse(
 			$this->appName,
 			'admin',
-			["nav" => $nav_final],
+			["nav" => $nav_final, 'type' => 'admin'],
+			'blank'
+		);
+		$this->assertEquals($expected, $result);
+	}
+
+	public function testPersonalIndex() {
+		$nav_custom = ['/app/calendar/', '/app/tasks/'];
+		$nav_oc = [
+			['href' => '/app/files/', 'name' => 'Files'],
+			['href' => '/app/calendar/', 'name' => 'Calendar'],
+			['href' => '/app/tasks/', 'name' => 'Tasks'],
+		];
+		$nav_final = [
+			'/app/calendar/' => $nav_oc[1], '/app/tasks/' => $nav_oc[2], '/app/files/' => $nav_oc[0]
+		];
+		$this->service->expects($this->once())
+			->method('getUserValue')
+			->with('order', 'admin')
+			->will($this->returnValue(json_encode($nav_custom)));
+		$this->navigationManager->expects($this->once())
+			->method('getAll')
+			->will($this->returnValue($nav_oc));
+
+		$result = $this->controller->personalIndex();
+		$expected = new \OCP\AppFramework\Http\TemplateResponse(
+			$this->appName,
+			'admin',
+			["nav" => $nav_final, 'type' => 'personal'],
 			'blank'
 		);
 		$this->assertEquals($expected, $result);

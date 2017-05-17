@@ -7,16 +7,17 @@ env:
     global:
         - DB=sqlite
     matrix:
-        - CORE_BRANCH=stable9.1 REPO=owncloud/core
-        - CORE_BRANCH=master REPO=owncloud/core
-        - CORE_BRANCH=stable10 REPO=nextcloud/server
         - CORE_BRANCH=master REPO=nextcloud/server
 
 matrix:
     fast_finish: true
 
 before_install:
-    # install core
+    - wget https://phar.phpunit.de/phpunit-5.7.phar
+    - chmod +x phpunit-5.7.phar
+    - mkdir bin
+    - mv phpunit-5.7.phar bin/phpunit
+    - phpunit --version
     - cd ../
     - git clone https://github.com/$REPO.git --recursive --depth 1 -b $CORE_BRANCH mainrepo
     - mv apporder mainrepo/apps/
@@ -30,6 +31,8 @@ before_script:
     - ./occ app:check-code apporder
     - php -S localhost:8080 &
     - cd apps/apporder
+    - export PATH="$PWD/bin:$PATH"
+
 
 script:
     - make test
