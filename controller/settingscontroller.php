@@ -59,7 +59,20 @@ class SettingsController extends Controller {
 		return new TemplateResponse(
 			$this->appName,
 			'admin',
-			["nav" => $nav],
+			["nav" => $nav, 'type' => 'admin'],
+			'blank'
+		);
+	}
+
+	public function personalIndex() {
+		// Private API call
+		$navigation = $this->navigationManager->getAll();
+		$order = json_decode($this->appConfig->getUserValue('order', $this->userId));
+		$nav = $this->util->matchOrder($navigation, $order);
+		return new TemplateResponse(
+			$this->appName,
+			'admin',
+			["nav" => $nav, 'type' => 'personal'],
 			'blank'
 		);
 	}
