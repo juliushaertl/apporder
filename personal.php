@@ -1,6 +1,6 @@
 <?php
 /**
- * @copyright Copyright (c) 2016 Julius Härtl <jus@bitgrid.net>
+ * @copyright Copyright (c) 2017 Julius Härtl <jus@bitgrid.net>
  *
  * @author Julius Härtl <jus@bitgrid.net>
  *
@@ -17,12 +17,11 @@
  *  GNU Affero General Public License for more details.
  *
  *  You should have received a copy of the GNU Affero General Public License
- *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *  along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  */
 
-\OCP\Util::addStyle('apporder', 'apporder');
-\OCP\Util::addScript('apporder', 'apporder');
-\OCP\App::registerAdmin('apporder', 'admin');
-\OCP\App::registerPersonal('apporder', 'personal');
+namespace OCA\AppOrder;
 
+$response = \OC::$server->query('\OCA\AppOrder\Controller\SettingsController')->personalIndex();
+return $response->render();

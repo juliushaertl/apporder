@@ -5,7 +5,7 @@
     <name>AppOrder</name>
     <summary>Sort apps in the menu with drag and drop</summary>
     <description>
-Enable sorting for icons inside the app menu. The order will be saved for each
+Enable sorting the app icons from the personal settings. The order will be saved for each
 user individually. Administrators can define a custom default order.
 AppOrder works with the default owncloud menu as well as with the direct_menu
 app.
@@ -25,12 +25,11 @@ Users will now get redirected to the first app of the default order or to the
 first app of the user order.
     </description>
     <category>customization</category>
-    <version>0.3.3</version>
+    <version>0.4.0</version>
     <licence>agpl</licence>
     <author mail="jus@bitgrid.net">Julius Härtl</author>
     <dependencies>
-        <owncloud min-version="9.0" max-version="9.2" />
-        <nextcloud min-version="9" max-version="11" />
+        <nextcloud min-version="12" max-version="12" />
     </dependencies>
     <namespace>AppOrder</namespace>
     <repository type="git">https://github.com/juliushaertl/apporder.git</repository>
