@@ -7,7 +7,7 @@
     <ul id="appsorter" data-type="<?php p($_['type']); ?>">
     <?php foreach($_['nav'] as $entry) { ?>
         <li>
-<input type="checkbox">
+            <input class="apporderhidden" type="checkbox" <?php if(!in_array($entry['href'],$_['hidden'])) {print_unescaped("checked");}?> >
             <img class="app-icon svg" alt="" src="<?php print_unescaped($entry['icon']); ?>">
             <p data-url="<?php p($entry['href']); ?>">
             <?php echo $entry['name']; ?>
