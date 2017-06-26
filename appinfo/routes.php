@@ -27,5 +27,8 @@ return [
 		['name' => 'settings#getOrder', 'url' => '/getOrder', 'verb' => 'GET'],
 		['name' => 'settings#savePersonal', 'url' => '/savePersonal', 'verb' => 'POST'],
 		['name' => 'settings#saveDefaultOrder', 'url' => '/saveDefaultOrder', 'verb' => 'POST'],
+		['name' => 'settings#getHidden', 'url' => '/getHidden', 'verb' => 'GET'],
+		['name' => 'settings#savePersonalHidden', 'url' => '/savePersonalHidden', 'verb' => 'POST'],
+		['name' => 'settings#saveDefaultHidden', 'url' => '/saveDefaultHidden', 'verb' => 'POST'],
 	]
 ];

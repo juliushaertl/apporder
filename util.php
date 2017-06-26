@@ -67,4 +67,15 @@ class Util {
 		return $result;
 	}
 
+	public function getAppHidden() {
+		$hidden_user = $this->appConfig->getUserValue('hidden', $this->userId);
+		$hidden_default = $this->appConfig->getAppValue('hidden');
+		if ($hidden_user !== null && $hidden_user !== "") {
+			$hidden = $hidden_user;
+		} else {
+			$hidden = $hidden_default;
+		}
+		return $hidden;
+	}
+
 }

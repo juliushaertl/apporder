@@ -56,10 +56,11 @@ class SettingsController extends Controller {
 		$navigation = $this->navigationManager->getAll();
 		$order = json_decode($this->appConfig->getAppValue('order'));
 		$nav = $this->util->matchOrder($navigation, $order);
+		$hidden = json_decode($this->appConfig->getAppValue('hidden'));
 		return new TemplateResponse(
 			$this->appName,
 			'admin',
-			["nav" => $nav, 'type' => 'admin'],
+			["nav" => $nav, 'type' => 'admin', 'hidden' => $hidden],
 			'blank'
 		);
 	}
@@ -69,10 +70,11 @@ class SettingsController extends Controller {
 		$navigation = $this->navigationManager->getAll();
 		$order = json_decode($this->appConfig->getUserValue('order', $this->userId));
 		$nav = $this->util->matchOrder($navigation, $order);
+		$hidden = json_decode($this->appConfig->getUserValue('hidden',$this->userId));
 		return new TemplateResponse(
 			$this->appName,
 			'admin',
-			["nav" => $nav, 'type' => 'personal'],
+			["nav" => $nav, 'type' => 'personal', 'hidden' => $hidden],
 			'blank'
 		);
 	}
@@ -116,6 +118,47 @@ class SettingsController extends Controller {
 			'order' => $order
 		);
 		return $response;
+	}
+
+	/**
+	 * Save hidden for current user
+	 *
+	 * @NoAdminRequired
+	 * @param $hidden string
+	 * @return array response
+	 */
+	public function savePersonalHidden($hidden) {
+		$this->appConfig->setUserValue('hidden', $this->userId, $hidden);
+		$response = array(
+			'status' => 'success',
+			'data' => array('message' => 'User hidden saved successfully.'),
+			'hidden' => $hidden
+		);
+		return $response;
+	}
+
+	/**
+	 * Return hidden for current user
+	 *
+	 * @NoAdminRequired
+	 * @return array response
+	 */
+	public function gethidden() {
+		$hidden = $this->util->getAppHidden();
+		return array('status' => 'success', 'hidden' => $hidden);
+	}
+
+	/**
+	 * Admin: save default hidden
+	 *
+	 * @param $hidden
+	 * @return array response
+	 */
+	public function saveDefaultHidden($hidden) {
+		if (!is_null($hidden)) {
+			$this->appConfig->setAppValue('hidden', $hidden);
+		}
+		return array('status' => 'success', 'hidden' => $hidden);
 	}
 
 }
