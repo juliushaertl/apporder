@@ -4,7 +4,7 @@ $(function () {
 	if (!app_menu.length)
 		return;
 
-	app_menu.hide();
+	app_menu.css('opacity', '0');
 
 	var mapMenu = function(parent, order) {
 		available_apps = {};
@@ -32,7 +32,9 @@ $(function () {
 		}
 		mapMenu($('#appmenu'), order);
 		mapMenu($('#apps').find('ul'), order);
-		app_menu.show();
+		$(window).trigger('resize');
+		app_menu.css('opacity', '1');
+
 	});
 
 	// Sorting inside settings
@@ -49,7 +51,7 @@ $(function () {
 				url = OC.generateUrl('/apps/apporder/savePersonal');
 			}
 			$("#appsorter").children().each(function (i, el) {
-				var item = $(el).find('a').attr('href');
+				var item = $(el).find('p').data("url");
 				items.push(item)
 			});
 			var json = JSON.stringify(items);
