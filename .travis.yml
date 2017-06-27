@@ -8,6 +8,7 @@ env:
         - DB=sqlite
     matrix:
         - CORE_BRANCH=master REPO=nextcloud/server
+        - CORE_BRANCH=stable12 REPO=nextcloud/server
 
 matrix:
     fast_finish: true
