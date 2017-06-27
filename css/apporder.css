@@ -30,7 +30,7 @@
 	margin:0;
 }
 
-#appsorter a {
+#appsorter li p {
 	display: block;
 	float: left;
 	padding-bottom: 1px;
