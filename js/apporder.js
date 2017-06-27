@@ -43,7 +43,6 @@ $(function () {
 			var items = [];
 			var url;
 			var type = $('#appsorter').data('type');
-			console.log(type);
 			if(type === 'admin') {
 				url = OC.generateUrl('/apps/apporder/saveDefaultOrder');
 			} else {
