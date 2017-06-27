@@ -29,7 +29,7 @@ first app of the user order.
     <licence>agpl</licence>
     <author mail="jus@bitgrid.net">Julius Härtl</author>
     <dependencies>
-        <nextcloud min-version="12" max-version="12" />
+        <nextcloud min-version="12" max-version="13" />
     </dependencies>
     <namespace>AppOrder</namespace>
     <repository type="git">https://github.com/juliushaertl/apporder.git</repository>
