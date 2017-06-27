@@ -8,7 +8,7 @@
     <?php foreach($_['nav'] as $entry) { ?>
         <li>
             <img class="app-icon svg" alt="" src="<?php print_unescaped($entry['icon']); ?>">
-            <p>
+            <p data-url="<?php p($entry['href']); ?>">
             <?php echo $entry['name']; ?>
             </p>
         </li>
