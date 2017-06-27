@@ -25,7 +25,7 @@
 	border-radius: 3px;
 }
 
-#appsorter a {
+#appsorter li p {
 	display: block;
 	float: left;
 	padding-bottom: 1px;
