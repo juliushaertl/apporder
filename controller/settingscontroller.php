@@ -100,7 +100,8 @@ class SettingsController extends Controller {
 	 */
 	public function getOrder() {
 		$order = $this->util->getAppOrder();
-		return array('status' => 'success', 'order' => $order);
+		$hidden = $this->util->getAppHidden();
+		return array('status' => 'success', 'order' => $order, 'hidden' => $hidden);
 	}
 
 	/**
@@ -135,17 +136,6 @@ class SettingsController extends Controller {
 			'hidden' => $hidden
 		);
 		return $response;
-	}
-
-	/**
-	 * Return hidden for current user
-	 *
-	 * @NoAdminRequired
-	 * @return array response
-	 */
-	public function gethidden() {
-		$hidden = $this->util->getAppHidden();
-		return array('status' => 'success', 'hidden' => $hidden);
 	}
 
 	/**

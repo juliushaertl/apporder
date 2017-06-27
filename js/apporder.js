@@ -11,22 +11,24 @@ $(function () {
 		parent.find('li').each(function () {
 			var id = $(this).find('a').attr('href');
 			if(hidden.includes(id)){
-				$(this).hide();
+				$(this).remove(); 
 			}
 			available_apps[id] = $(this);
 		});
+
+		//Remove hidden from order array
+		order = order.filter(function(e){ 
+			return !hidden.includes(e);
+		})
 		$.each(order, function (order, value) {
 			parent.prepend(available_apps[value]);
 		});
 	};
 
-	var order_request = $.get(OC.generateUrl('/apps/apporder/getOrder'));
-	var hidden_request = $.get(OC.generateUrl('/apps/apporder/getHidden'));
-
 	// restore existing order 
-	$.when(order_request, hidden_request).done(function (order_data, hidden_data) {
-		var order_json = order_data[0].order;
-		var hidden_json = hidden_data[0].hidden;
+	$.get(OC.generateUrl('/apps/apporder/getOrder'),function(data){
+		var order_json = data.order;
+		var hidden_json = data.hidden;
 		var order = [];
 		var hidden = [];
 		try {
@@ -44,10 +46,12 @@ $(function () {
 			app_menu.show();
 			return;
 		}
+
 		mapMenu($('#appmenu'), order, hidden);
 		mapMenu($('#apps').find('ul'), order, hidden);
 		$(window).trigger('resize');
 		app_menu.css('opacity', '1');
+
 	});
 
 	// Sorting inside settings
@@ -89,7 +93,7 @@ $(function () {
 
 		$(".apporderhidden").each(function(i, el){
 			if(!el.checked){
-				hiddenList.push($(el).siblings('a').attr('href'))
+				hiddenList.push($(el).siblings('p').attr('data-url'))
 			}
 		});
 
