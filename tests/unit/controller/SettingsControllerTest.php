@@ -202,4 +202,25 @@ class SettingsControllerTest extends \PHPUnit_Framework_TestCase {
 		$result = $this->controller->saveDefaultOrder($order);
 		$this->assertEquals($expected, $result);
 	}
+
+	public function testSavePersonalHidden() {
+		$hidden = "RANDOMHIDDEN";
+		$expected = array(
+			'status' => 'success',
+			'data' => array('message' => 'User order saved successfully.'),
+			'order' => $hidden
+		);
+		$result = $this->controller->savePersonal($hidden);
+		$this->assertEquals($expected, $result);
+	}
+
+	public function testSaveDefaultHidden() {
+		$hidden = "RANDOMHIDDEN";
+		$expected = array(
+			'status' => 'success',
+			'order' => $hidden
+		);
+		$result = $this->controller->saveDefaultOrder($hidden);
+		$this->assertEquals($expected, $result);
+	}
 }
