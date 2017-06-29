@@ -90,10 +90,15 @@ class SettingsControllerTest extends \PHPUnit_Framework_TestCase {
 		$nav_final = [
 			'/app/calendar/' => $nav_oc[1], '/app/tasks/' => $nav_oc[2], '/app/files/' => $nav_oc[0]
 		];
-		$this->service->expects($this->once())
+		$hidden = ["/app/calendar/"];
+		$this->service->expects($this->at(0))
 			->method('getAppValue')
 			->with('order')
 			->will($this->returnValue(json_encode($nav_custom)));
+		$this->service->expects($this->at(1))
+			->method('getAppValue')
+			->with('hidden')
+			->will($this->returnValue(json_encode($hidden)));
 		$this->navigationManager->expects($this->once())
 			->method('getAll')
 			->will($this->returnValue($nav_oc));
@@ -102,7 +107,7 @@ class SettingsControllerTest extends \PHPUnit_Framework_TestCase {
 		$expected = new \OCP\AppFramework\Http\TemplateResponse(
 			$this->appName,
 			'admin',
-			["nav" => $nav_final, 'type' => 'admin'],
+			["nav" => $nav_final, 'type' => 'admin', 'hidden' => $hidden],
 			'blank'
 		);
 		$this->assertEquals($expected, $result);
@@ -118,10 +123,13 @@ class SettingsControllerTest extends \PHPUnit_Framework_TestCase {
 		$nav_final = [
 			'/app/calendar/' => $nav_oc[1], '/app/tasks/' => $nav_oc[2], '/app/files/' => $nav_oc[0]
 		];
-		$this->service->expects($this->once())
-			->method('getUserValue')
+		$hidden = ["/app/calendar/"];
+		$this->service->expects($this->at(0))->method('getUserValue')
 			->with('order', 'admin')
 			->will($this->returnValue(json_encode($nav_custom)));
+		$this->service->expects($this->at(1))->method('getUserValue')
+			->with('hidden', 'admin')
+			->will($this->returnValue(json_encode($hidden)));
 		$this->navigationManager->expects($this->once())
 			->method('getAll')
 			->will($this->returnValue($nav_oc));
@@ -130,7 +138,7 @@ class SettingsControllerTest extends \PHPUnit_Framework_TestCase {
 		$expected = new \OCP\AppFramework\Http\TemplateResponse(
 			$this->appName,
 			'admin',
-			["nav" => $nav_final, 'type' => 'personal'],
+			["nav" => $nav_final, 'type' => 'personal', "hidden" => $hidden],
 			'blank'
 		);
 		$this->assertEquals($expected, $result);
@@ -140,17 +148,37 @@ class SettingsControllerTest extends \PHPUnit_Framework_TestCase {
 	public function testGetOrder() {
 		$nav_system = ['/app/calendar/', '/app/tasks/'];
 		$nav_user = ['/app/files/', '/app/calendar/', '/app/tasks/'];
-		$this->service->expects($this->once())
-			->method('getAppValue')
-			->with('order')
-			->will($this->returnValue(json_encode($nav_system)));
-		$this->service->expects($this->once())
+
+		$hidden_admin = ['/app/calender/'];
+		$hidden_user = ['/app/files/'];
+
+		$this->service->expects($this->at(0))
 			->method('getUserValue')
 			->with('order', $this->userId)
 			->will($this->returnValue(json_encode($nav_user)));
+
+		$this->service->expects($this->at(1))
+			->method('getAppValue')
+			->with('order')
+			->will($this->returnValue(json_encode($nav_system)));
+
+		$this->service->expects($this->at(2))
+			->method('getUserValue')
+			->with('hidden', $this->userId)
+			->will($this->returnValue(json_encode($hidden_user)));
+
+		$this->service->expects($this->at(3))
+			->method('getAppValue')
+			->with('hidden')
+			->will($this->returnValue(json_encode($hidden_admin)));
+
 		$order = ['/app/files/', '/app/calendar/', '/app/tasks/'];
+		$hidden = ['/app/files/'];
+
 		$result = $this->controller->getOrder();
-		$expected = array('status' => 'success', 'order' => json_encode($order));
+
+		$expected = array('status' => 'success', 'order' => json_encode($order), 'hidden' => json_encode($hidden));
+
 		$this->assertEquals($expected, $result);
 	}
 
