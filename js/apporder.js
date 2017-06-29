@@ -27,7 +27,7 @@ $(function () {
 			order = [];
 		}
 		if (order.length === 0) {
-			app_menu.show();
+			app_menu.css('opacity','1');
 			return;
 		}
 		mapMenu($('#appmenu'), order);
