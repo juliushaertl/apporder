@@ -79,6 +79,20 @@ class AppControllerTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals($expected, $result);
 	}
 
+	public function testIndexHidden() {
+
+		$this->util->expects($this->at(0))
+			->method('getAppOrder')
+			->willReturn(json_encode(['/index.php/foo/bar', '/index.php/bar/foo']));
+
+		$this->util->expects($this->at(1))
+			->method('getAppHidden')
+			->willReturn(json_encode(['/index.php/foo/bar']));
+		$expected = new Http\RedirectResponse('/index.php/bar/foo');
+		$result = $this->controller->index();
+		$this->assertEquals($expected, $result);
+	}
+
 	public function testIndexEmpty() {
 		$this->util->expects($this->once())
 			->method('getAppOrder')
