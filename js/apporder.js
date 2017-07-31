@@ -43,7 +43,7 @@ $(function () {
 		}
 
 		if (order.length === 0) {
-			app_menu.css('opacity','1');
+			app_menu.css('opacity', '1');
 			return;
 		}
 
