@@ -55,8 +55,10 @@ class SettingsController extends Controller {
 		// Private API call
 		$navigation = $this->navigationManager->getAll();
 		$order = json_decode($this->appConfig->getAppValue('order'));
+		if($order === null) $order = array();
 		$nav = $this->util->matchOrder($navigation, $order);
 		$hidden = json_decode($this->appConfig->getAppValue('hidden'));
+		if($hidden === null) $hidden = array();
 		return new TemplateResponse(
 			$this->appName,
 			'admin',
@@ -69,8 +71,16 @@ class SettingsController extends Controller {
 		// Private API call
 		$navigation = $this->navigationManager->getAll();
 		$order = json_decode($this->appConfig->getUserValue('order', $this->userId));
+		if($order === null){
+			$order = json_decode($this->appConfig->getAppValue('order'));
+			if($order === null) $order = array();
+		}
 		$nav = $this->util->matchOrder($navigation, $order);
 		$hidden = json_decode($this->appConfig->getUserValue('hidden',$this->userId));
+		if($hidden === null){
+			$hidden = json_decode($this->appConfig->getAppValue('hidden'));
+			if($hidden === null) $hidden = array();
+		}
 		return new TemplateResponse(
 			$this->appName,
 			'admin',
