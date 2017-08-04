@@ -6,32 +6,49 @@ $(function () {
 
 	app_menu.css('opacity', '0');
 
-	var mapMenu = function(parent, order) {
+	var mapMenu = function(parent, order, hidden) {
 		available_apps = {};
 		parent.find('li').each(function () {
 			var id = $(this).find('a').attr('href');
+			if(hidden.includes(id)){
+				$(this).remove(); 
+			}
 			available_apps[id] = $(this);
 		});
+
+		//Remove hidden from order array
+		order = order.filter(function(e){ 
+			return !hidden.includes(e);
+		})
 		$.each(order, function (order, value) {
 			parent.prepend(available_apps[value]);
 		});
 	};
 
-	// restore existing order
-	$.get(OC.generateUrl('/apps/apporder/getOrder'), function (data) {
-		var json = data.order;
+	// restore existing order 
+	$.get(OC.generateUrl('/apps/apporder/getOrder'),function(data){
+		var order_json = data.order;
+		var hidden_json = data.hidden;
 		var order = [];
+		var hidden = [];
 		try {
-			order = JSON.parse(json).reverse();
+			order = JSON.parse(order_json).reverse();
 		} catch (e) {
 			order = [];
 		}
+		try {
+			hidden = JSON.parse(hidden_json);
+		} catch (e) {
+			hidden = [];
+		}
+
 		if (order.length === 0) {
-			app_menu.css('opacity','1');
+			app_menu.css('opacity', '1');
 			return;
 		}
-		mapMenu($('#appmenu'), order);
-		mapMenu($('#apps').find('ul'), order);
+
+		mapMenu($('#appmenu'), order, hidden);
+		mapMenu($('#apps').find('ul'), order, hidden);
 		$(window).trigger('resize');
 		app_menu.css('opacity', '1');
 
@@ -61,5 +78,30 @@ $(function () {
 				$(event.srcElement).effect("highlight", {}, 1000);
 			});
 		}
+	});
+
+	$(".apporderhidden").change(function(){
+		var hiddenList = [];
+		var url;
+		var type = $("#appsorter").data("type");
+
+		if(type === 'admin') {
+			url = OC.generateUrl('/apps/apporder/saveDefaultHidden');
+		} else {
+			url = OC.generateUrl('/apps/apporder/savePersonalHidden');
+		}
+
+		$(".apporderhidden").each(function(i, el){
+			if(!el.checked){
+				hiddenList.push($(el).siblings('p').attr('data-url'))
+			}
+		});
+
+		var json = JSON.stringify(hiddenList);
+		$.post(url, {
+			hidden: json
+		}, function (data) {
+			//$(event.srcElement).effect("highlight", {}, 1000);
+		});
 	});
 });

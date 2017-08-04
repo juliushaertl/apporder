@@ -53,10 +53,27 @@ class AppController extends Controller {
 	 */
 	public function index() {
 		$order = json_decode($this->util->getAppOrder());
+		$hidden = json_decode($this->util->getAppHidden());
+
+		$firstPage = null;
+
 		if ($order !== null && sizeof($order) > 0) {
-			$firstPage = $order[0];
-		} else {
+			if($hidden !== null && sizeof($hidden) > 0){
+				foreach($order as $app){
+					if(!in_array($app,$hidden)){
+						$firstPage = $app;	
+						break;
+					}
+				}
+			}
+			else{
+				$firstPage = $order[0];
+			}
+		} 
+		if($firstPage===null)	{
+
 			$appId = 'files';
+
 			if (getenv('front_controller_active') === 'true') {
 				$firstPage = $this->urlGenerator->getAbsoluteURL('/apps/' . $appId . '/');
 			} else {
