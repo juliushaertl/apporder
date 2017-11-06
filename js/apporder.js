@@ -10,7 +10,7 @@ $(function () {
 		available_apps = {};
 		parent.find('li').each(function () {
 			var id = $(this).find('a').attr('href');
-			if(hidden.includes(id)){
+			if(hidden.indexOf(id) > -1){
 				$(this).remove(); 
 			}
 			available_apps[id] = $(this);
@@ -18,7 +18,7 @@ $(function () {
 
 		//Remove hidden from order array
 		order = order.filter(function(e){ 
-			return !hidden.includes(e);
+			return !(hidden.indexOf(e) > -1);
 		})
 		$.each(order, function (order, value) {
 			parent.prepend(available_apps[value]);
