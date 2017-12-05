@@ -23,7 +23,7 @@ Users will now get redirected to the first app of the default order or to the
 first app of the user order.
     </description>
     <category>customization</category>
-    <version>0.4.0</version>
+    <version>0.4.1</version>
     <licence>agpl</licence>
     <author mail="jus@bitgrid.net">Julius Härtl</author>
     <dependencies>
