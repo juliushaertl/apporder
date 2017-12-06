@@ -1,0 +1,7 @@
+{ "translations": {
+    "AppOrder" : "AppOrder",
+    "App Order" : "Orde d'aplicaciones",
+    "Set a default order for all users. This will be ignored, if the user has setup a custom order." : "Afita un orde predetermináu pa tolos usuarios. Esto va inorase si l'usuariu configuró un orde personalizáu.",
+    "Drag the app icons to change their order." : "Arrastra los iconos de l'aplicación pa camudar el so orde."
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}
