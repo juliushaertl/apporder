@@ -1,0 +1,9 @@
+OC.L10N.register(
+    "apporder",
+    {
+    "AppOrder" : "ApplikasjonsRekkjefølgje",
+    "App Order" : "Applikasjons Rekkjefølgje",
+    "Set a default order for all users. This will be ignored, if the user has setup a custom order." : "Set ei standard rekkjefølgje for alle brukarare. Ho vil bli ignorerdt, om brukararen settjer opp ei eiga rekkjefølgje",
+    "Drag the app icons to change their order." : "Dra applikasjons ikona for å endre rekkjefølgja"
+},
+"nplurals=2; plural=(n != 1);");
