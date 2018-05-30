@@ -2,6 +2,7 @@ OC.L10N.register(
     "apporder",
     {
     "AppOrder" : "Порядок приложений",
+    "Sort apps in the menu with drag and drop" : "Сортируйте приложения с помощью перетаскивания",
     "App Order" : "Порядок приложений",
     "Set a default order for all users. This will be ignored, if the user has setup a custom order." : "Задаёт для всех пользователей порядок приложений по умолчанию. Не распространяется на пользователей, которые самостоятельно задали порядок приложений.",
     "Drag the app icons to change their order." : "Перемещайте значки приложений для изменения порядка их следования."
