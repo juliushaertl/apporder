@@ -31,7 +31,7 @@ first app of the user order.
     </dependencies>
     <namespace>AppOrder</namespace>
     <repository type="git">https://github.com/juliushaertl/apporder.git</repository>
+    <screenshot>https://download.bitgrid.net/nextcloud/apporder/apporder.png</screenshot>
     <bugs>https://github.com/juliushaertl/apporder/issues</bugs>
-    <ocsid>174715</ocsid>
 </info>
 
