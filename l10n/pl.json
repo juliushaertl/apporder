@@ -1,5 +1,6 @@
 { "translations": {
     "AppOrder" : "AppOrder",
+    "Sort apps in the menu with drag and drop" : "Ustaw kolejność wyświetlania aplikacji metodą przeciągnij i upuść",
     "App Order" : "Kolejność aplikacji",
     "Set a default order for all users. This will be ignored, if the user has setup a custom order." : "Ustaw domyślną kolejność aplikacji dla wszystkich użytkowników. Opcja będzie zignorowana jeśli użytkownik ustali własną kolejność.",
     "Drag the app icons to change their order." : "Przeciągnij ikony aplikacji aby zmienić ich kolejność."
