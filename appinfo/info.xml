@@ -23,11 +23,11 @@ Users will now get redirected to the first app of the default order or to the
 first app of the user order.
     </description>
     <category>customization</category>
-    <version>0.5.0</version>
+    <version>0.6.0</version>
     <licence>agpl</licence>
     <author mail="jus@bitgrid.net">Julius Härtl</author>
     <dependencies>
-        <nextcloud min-version="12" max-version="14" />
+        <nextcloud min-version="12" max-version="15" />
     </dependencies>
     <namespace>AppOrder</namespace>
     <repository type="git">https://github.com/juliushaertl/apporder.git</repository>
