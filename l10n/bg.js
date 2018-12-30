@@ -2,8 +2,9 @@ OC.L10N.register(
     "apporder",
     {
     "AppOrder" : "Подредба на приложения",
-    "App Order" : "Подредба на приложения",
-    "Set a default order for all users. This will be ignored, if the user has setup a custom order." : "Задайте подредбата по подразбиране за всички потребители. Това ще бъде пренебрегнато, ако потребителят е задал собствена подредба.",
-    "Drag the app icons to change their order." : "Преместете с мишката иконите на приложенията, за да промените тяхната подредба."
+    "Sort apps in the menu with drag and drop" : "Променя реда на приложенията",
+    "App Order" : "Подредба на приложенията",
+    "Set a default order for all users. This will be ignored, if the user has setup a custom order." : "Задайте стандартна подредба на приложенията за всички потребители. Избраният ред ще бъде игнориран, ако даден потребителя е задал собствена подредба.",
+    "Drag the app icons to change their order." : "Влачете иконите на приложенията, за да промените подредбата им"
 },
 "nplurals=2; plural=(n != 1);");
