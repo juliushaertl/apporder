@@ -1,3 +1,8 @@
+## 0.7.0
+
+### Changed
+- Add support for Nextcloud 16
+
 ## 0.4.0
 
 ### Changed
