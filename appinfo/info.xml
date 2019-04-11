@@ -22,16 +22,22 @@ personal order by changing the following parameter in your config/config.php:
 Users will now get redirected to the first app of the default order or to the
 first app of the user order.
     </description>
-    <category>customization</category>
     <version>0.7.0</version>
     <licence>agpl</licence>
     <author mail="jus@bitgrid.net">Julius Härtl</author>
-    <dependencies>
-        <nextcloud min-version="12" max-version="16" />
-    </dependencies>
     <namespace>AppOrder</namespace>
+    <category>customization</category>
+    <bugs>https://github.com/juliushaertl/apporder/issues</bugs>
     <repository type="git">https://github.com/juliushaertl/apporder.git</repository>
     <screenshot>https://download.bitgrid.net/nextcloud/apporder/apporder.png</screenshot>
-    <bugs>https://github.com/juliushaertl/apporder/issues</bugs>
+    <dependencies>
+        <nextcloud min-version="16" max-version="16" />
+    </dependencies>
+    <settings>
+        <admin>OCA\AppOrder\Settings\AdminSettings</admin>
+        <admin-section>OCA\AppOrder\Settings\Section</admin-section>
+        <personal>OCA\AppOrder\Settings\PersonalSettings</personal>
+        <personal-section>OCA\AppOrder\Settings\Section</personal-section>
+    </settings>
 </info>
 

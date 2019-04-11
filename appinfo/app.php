@@ -23,6 +23,3 @@
 
 \OCP\Util::addStyle('apporder', 'apporder');
 \OCP\Util::addScript('apporder', 'apporder');
-\OCP\App::registerAdmin('apporder', 'admin');
-\OCP\App::registerPersonal('apporder', 'personal');
-
