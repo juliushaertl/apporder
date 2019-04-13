@@ -38,7 +38,9 @@ class Util {
 	public function getAppOrder() {
 		$order_user = $this->appConfig->getUserValue('order', $this->userId);
 		$order_default = $this->appConfig->getAppValue('order');
-		if ($order_user !== null && $order_user !== "") {
+		$forced_order = json_decode($this->appConfig->getAppValue('force'));
+                if($forced_order === null) $forced_order = false;
+		if ($order_user !== null && $order_user !== "" && !($forced_order)) {
 			$order = $order_user;
 		} else {
 			$order = $order_default;
@@ -70,7 +72,9 @@ class Util {
 	public function getAppHidden() {
 		$hidden_user = $this->appConfig->getUserValue('hidden', $this->userId);
 		$hidden_default = $this->appConfig->getAppValue('hidden');
-		if ($hidden_user !== null && $hidden_user !== "") {
+		$forced_order = json_decode($this->appConfig->getAppValue('force'));
+                if($forced_order === null) $forced_order = false;
+		if ($hidden_user !== null && $hidden_user !== "" && !($forced_order)) {
 			$hidden = $hidden_user;
 		} else {
 			$hidden = $hidden_default;

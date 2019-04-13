@@ -42,3 +42,15 @@
 #appsorter li p {
 	padding: 1px;
 }
+
+#appsorterforce {
+	margin-bottom: 2px;
+        display: flex;
+}
+
+#appsorterforce input {
+	margin: -5px 5px 0px 5px;
+	padding: 0;
+	width: 14px;
+	height: 14px;
+}
