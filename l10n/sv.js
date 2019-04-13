@@ -1,6 +1,7 @@
 OC.L10N.register(
     "apporder",
     {
+    "App order" : "App-ordning",
     "AppOrder" : "AppOrder",
     "Sort apps in the menu with drag and drop" : "Sortera appar i menyn genom att dra och släppa",
     "App Order" : "App-ordning",
