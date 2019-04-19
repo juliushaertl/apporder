@@ -1,6 +1,7 @@
 OC.L10N.register(
     "apporder",
     {
+    "App order" : "アプリ順番",
     "AppOrder" : "アプリオーダー",
     "Sort apps in the menu with drag and drop" : "ドラッグ＆ドロップでメニュー内のアプリを並べ替える",
     "App Order" : "アプリオーダー",
