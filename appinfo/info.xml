@@ -22,7 +22,7 @@ personal order by changing the following parameter in your config/config.php:
 Users will now get redirected to the first app of the default order or to the
 first app of the user order.
     </description>
-    <version>0.7.0</version>
+    <version>0.8.0</version>
     <licence>agpl</licence>
     <author mail="jus@bitgrid.net">Julius Härtl</author>
     <namespace>AppOrder</namespace>
@@ -31,7 +31,7 @@ first app of the user order.
     <repository type="git">https://github.com/juliushaertl/apporder.git</repository>
     <screenshot>https://download.bitgrid.net/nextcloud/apporder/apporder.png</screenshot>
     <dependencies>
-        <nextcloud min-version="16" max-version="16" />
+        <nextcloud min-version="16" max-version="17" />
     </dependencies>
     <settings>
         <admin>OCA\AppOrder\Settings\AdminSettings</admin>
