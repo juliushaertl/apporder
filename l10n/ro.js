@@ -2,8 +2,8 @@ OC.L10N.register(
     "apporder",
     {
     "App order" : "Ordine aplicații",
-    "AppOrder" : "AppOrder",
-    "Sort apps in the menu with drag and drop" : "Ordonează aplicațiile în meniu trăgând de ele",
+    "AppOrder" : "Ordine aplicații",
+    "Sort apps in the menu with drag and drop" : "Ordonează aplicațiile în meniu trăgând și plasând",
     "Enable sorting the app icons from the personal settings. The order will be saved for each\nuser individually. Administrators can define a custom default order.\n\n## Set a default order for all new users\n\nGo to the Admin settings > Additional settings and drag the icons under App order.\n\n## Use first app as default app\n\nYou can easily let Nextcloud redirect your user to the first app in their\npersonal order by changing the following parameter in your config/config.php:\n\n    'defaultapp' => 'apporder',\n\nUsers will now get redirected to the first app of the default order or to the\nfirst app of the user order." : "Permite sortarea pictogramelor aplicațiilor prin setări personale. Ordinea va fi salvată pentru fiecare utilizator individual. Administratorii pot defini o ordine implicită.\n\n## Setează o ordine implicită pentru toți utilizatorii noi\n\nMergi în Setări Administrator > Setări Adiționale și trage de pictogramele din Ordinea Aplicațiilor.\n\n## Folosește prima aplicație drept aplicație implicită\n\nPoți lăsa Nextcloud să redirecționeze utilizatorul către prima aplicație din ordinea lui personalizată schimbând următorul parametru în config/config.php:\n\n    'defaultapp'=>'apporder',\n\nUtilizatorii vor fi acum redirecționați către prima aplicație a ordonării implicite sau către prima aplicație a ordonării utilizatorului.",
     "App Order" : "Ordine Aplicații",
     "Set a default order for all users. This will be ignored, if the user has setup a custom order." : "Setează ordinea implicită pentru toți utilizatorii. Aceasta va fi ignorată, dacă utilizatorul a setat o ordine personalizată.",
