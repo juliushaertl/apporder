@@ -21,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.5.0] - 2018-08-03
 
 ## [0.4.1] - 2017-12-05
-###Fixed
+### Fixed
 - Fix bug in IE11
 
 ## [0.4.0] - 2017-08-04
