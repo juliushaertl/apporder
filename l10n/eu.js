@@ -1,6 +1,7 @@
 OC.L10N.register(
     "apporder",
     {
+    "App order" : "Aplikazio eskaera",
     "AppOrder" : "AppAgindua",
     "Sort apps in the menu with drag and drop" : "Ordenatu aplikazioak menuak arrastatu eta jareginez",
     "App Order" : "AppAgindua",
