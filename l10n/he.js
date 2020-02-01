@@ -1,6 +1,7 @@
 OC.L10N.register(
     "apporder",
     {
+    "App order" : "סידור יישומונים",
     "AppOrder" : "סידור יישומונים",
     "Sort apps in the menu with drag and drop" : "סידור יישומונים בתפריט באמצעות גרירה",
     "App Order" : "סידור יישומונים",

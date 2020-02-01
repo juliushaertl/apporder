@@ -1,6 +1,7 @@
 OC.L10N.register(
     "apporder",
     {
+    "App order" : "Röðun forrita",
     "AppOrder" : "RöðunForrita",
     "Sort apps in the menu with drag and drop" : "Raða forritum í valmynd með því að draga og sleppa",
     "App Order" : "Röðun forrita",
