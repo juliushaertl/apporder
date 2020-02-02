@@ -34,10 +34,13 @@ class PersonalSettings implements ISettings {
 	private $config;
 	/** @var \OC_Defaults */
 	private $defaults;
+	/** @var indicates admin-forced order */
+	private $force_admin_order;
 
-	public function __construct(IConfig $config, \OC_Defaults $defaults) {
+	public function __construct(IConfig $config, $appName, \OC_Defaults $defaults) {
 		$this->config = $config;
 		$this->defaults = $defaults;
+		$this->force_admin_order = json_decode($this->config->getAppValue($appName, 'force')) ?? false;
 	}
 
 	/**
@@ -45,7 +48,11 @@ class PersonalSettings implements ISettings {
 	 * @since 9.1
 	 */
 	public function getForm() {
-		$response = \OC::$server->query(\OCA\AppOrder\Controller\SettingsController::class)->personalIndex();
+		if ($this->force_admin_order) {
+			$response = null;
+		} else {
+			$response = \OC::$server->query(\OCA\AppOrder\Controller\SettingsController::class)->personalIndex();
+		}
 		return $response;
 	}
 
@@ -54,7 +61,11 @@ class PersonalSettings implements ISettings {
 	 * @since 9.1
 	 */
 	public function getSection() {
-		return 'apporder';
+		if ($this->force_admin_order) {
+			return null;
+		} else {
+			return 'apporder';
+		}
 	}
 
 	/**
@@ -66,7 +77,11 @@ class PersonalSettings implements ISettings {
 	 * @since 9.1
 	 */
 	public function getPriority() {
-		return 90;
+		if ($this->force_admin_order) {
+			return null;
+		} else {
+			return 90;
+		}
 	}
 
 }
