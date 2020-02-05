@@ -104,4 +104,22 @@ $(function () {
 			//$(event.srcElement).effect("highlight", {}, 1000);
 		});
 	});
+
+	$("#forcecheckbox").change(function(){
+		var hiddenList = [];
+		var url;
+		var type = $("#forcecheckbox").data("type");
+
+		if(type === 'admin') {
+			url = OC.generateUrl('/apps/apporder/saveDefaultForce');
+			var checked = $("#forcecheckbox").get(0).checked;
+
+			var json = JSON.stringify(checked);
+			$.post(url, {
+				force: json
+			}, function (data) {
+				// Not really anything to do here ...
+			});
+		}
+	});
 });

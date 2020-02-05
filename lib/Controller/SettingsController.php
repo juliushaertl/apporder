@@ -59,10 +59,12 @@ class SettingsController extends Controller {
 		$nav = $this->util->matchOrder($navigation, $order);
 		$hidden = json_decode($this->appConfig->getAppValue('hidden'));
 		if($hidden === null) $hidden = array();
+		$force = json_decode($this->appConfig->getAppValue('force'));
+		if($force === null) $force = false;
 		return new TemplateResponse(
 			$this->appName,
 			'admin',
-			["nav" => $nav, 'type' => 'admin', 'hidden' => $hidden],
+			["nav" => $nav, 'type' => 'admin', 'hidden' => $hidden, 'force' => $force],
 			'blank'
 		);
 	}
@@ -81,10 +83,12 @@ class SettingsController extends Controller {
 			$hidden = json_decode($this->appConfig->getAppValue('hidden'));
 			if($hidden === null) $hidden = array();
 		}
+		$force = json_decode($this->appConfig->getAppValue('force'));
+                if($force === null) $force = false;
 		return new TemplateResponse(
 			$this->appName,
 			'admin',
-			["nav" => $nav, 'type' => 'personal', 'hidden' => $hidden],
+			["nav" => $nav, 'type' => 'personal', 'hidden' => $hidden, 'force' => $force],
 			'blank'
 		);
 	}
@@ -159,6 +163,19 @@ class SettingsController extends Controller {
 			$this->appConfig->setAppValue('hidden', $hidden);
 		}
 		return array('status' => 'success', 'hidden' => $hidden);
+	}
+
+	/**
+	 * Admin: save force value
+	 *
+	 * @param $force
+	 * @return array response
+	 */
+	public function saveDefaultForce($force) {
+		if (!is_null($force)) {
+			$this->appConfig->setAppValue('force', $force);
+		}
+		return array('status' => 'success', 'force' => $force);
 	}
 
 }
