@@ -6,7 +6,6 @@ OC.L10N.register(
     "Sort apps in the menu with drag and drop" : "ドラッグ＆ドロップでメニュー内のアプリを並べ替える",
     "Enable sorting the app icons from the personal settings. The order will be saved for each\nuser individually. Administrators can define a custom default order.\n\n## Set a default order for all new users\n\nGo to the Admin settings > Additional settings and drag the icons under App order.\n\n## Use first app as default app\n\nYou can easily let Nextcloud redirect your user to the first app in their\npersonal order by changing the following parameter in your config/config.php:\n\n    'defaultapp' => 'apporder',\n\nUsers will now get redirected to the first app of the default order or to the\nfirst app of the user order." : "個人設定からアプリアイコンの並べ替えを有効にします。 順序はそれぞれに個別ユーザー\n保存されます。管理者はカスタムのデフォルトの順序を定義できます。\n\n## すべての新規ユーザーにデフォルトの順番を設定する。\n\n管理者設定> その他の設定に移動して、App orderの下のアイコンをドラッグします。\n\n## 最初のアプリをデフォルトのアプリとして使う。\n\nconfig / config.phpの以下のパラメータを変更することで、Nextcloudに自分の個人的な順番でユーザーを最初のアプリにリダイレクトさせることができます。\n\n  'defaultapp' => 'apporder',\n\nこれで、ユーザーはデフォルトの順序の最初のアプリまたはユーザー指定順の最初のアプリにリダイレクトされます。",
     "App Order" : "アプリオーダー",
-    "Set a default order for all users. This will be ignored, if the user has setup a custom order." : "すべてのユーザーのデフォルトの順序を設定します。 ユーザーがカスタムオーダーを設定している場合、これは無視されます。",
     "Drag the app icons to change their order." : "アプリアイコンをドラッグして順序を変更します。"
 },
 "nplurals=1; plural=0;");
