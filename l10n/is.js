@@ -5,6 +5,9 @@ OC.L10N.register(
     "AppOrder" : "RöðunForrita",
     "Sort apps in the menu with drag and drop" : "Raða forritum í valmynd með því að draga og sleppa",
     "App Order" : "Röðun forrita",
-    "Drag the app icons to change their order." : "Dragðu til táknmyndir forrita til að breyta röðun þeirra."
+    "Set a default order for all users. This will be ignored, if the user has setup a custom order, and the default order is not forced." : "Settu sjálfgefna röðun fyrir alla notendur. Þetta verður hunsað ef notandinn hefur skilgreint sérsniðna röðun og ef sjálfgefin röðun er ekki þvinguð.",
+    "Drag the app icons to change their order." : "Dragðu til táknmyndir forrita til að breyta röðun þeirra.",
+    "Force the default order for all users:" : "Þvinga fram sjálfgefna röðun fyrir alla notendur:",
+    "If enabled, users will not be able to set a custom order." : "Ef þetta er virkt, munu notendur ekki geta stillt sérsniðna röðun."
 },
 "nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);");
