@@ -1,12 +1,12 @@
 sudo: false
 language: php
 php:
-    - 7.1
+    - 7.2
 env:
     global:
         - DB=sqlite
     matrix:
-        - CORE_BRANCH=master REPO=nextcloud/server
+        - CORE_BRANCH=stable19 REPO=nextcloud/server
 
 matrix:
     fast_finish: true
@@ -23,7 +23,7 @@ before_install:
 
 before_script:
     # fill owncloud with default configs and enable apporder
-    - cd mainrepo 
+    - cd mainrepo
     - mkdir data
     - ./occ maintenance:install --database-name oc_autotest --database-user oc_autotest --admin-user admin --admin-pass admin --database $DB --database-pass=''
     - ./occ app:enable apporder
