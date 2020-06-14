@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Support for Nextcloud 18
+- Support for Nextcloud 19
 - Added functionality to force an admin-defined order
 
 ### Fixed
