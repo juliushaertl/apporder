@@ -2,7 +2,7 @@ OC.L10N.register(
     "apporder",
     {
     "App order" : "Programėlių tvarka",
-    "AppOrder" : "ProgramėliųTvarka",
+    "AppOrder" : "Programėlių išdėstymo tvarka",
     "Sort apps in the menu with drag and drop" : "Velkant rikiuoti meniu esančias programėles",
     "App Order" : "Programėlių tvarka",
     "Set a default order for all users. This will be ignored, if the user has setup a custom order, and the default order is not forced." : "Nustatyti numatytąją tvarką visiems naudotojams. Jos bus nepaisoma, jei naudotojas yra nusistatęs pasirinktinę tvarką, o numatytoji tvarka nėra priverstinė.",
