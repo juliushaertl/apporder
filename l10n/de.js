@@ -9,6 +9,6 @@ OC.L10N.register(
     "Set a default order for all users. This will be ignored, if the user has setup a custom order, and the default order is not forced." : "Standardreihenfolge für alle Benutzer einstellen. Diese Einstellung wird ignoriert, sofern der Benutzer eine eigene Reihenfolge eingestellt hat und die Standardreihenfolge nicht erzwungen wird.",
     "Drag the app icons to change their order." : "Verschiebe die App-Symbole, um ihre Anordnung zu verändern.",
     "Force the default order for all users:" : "Standardreihenfolge für alle Benutzer erzwingen:",
-    "If enabled, users will not be able to set a custom order." : "Wenn aktiviert können Benutzer keine eigene Reihenfolge einstellen."
+    "If enabled, users will not be able to set a custom order." : "Wenn aktiviert, können Benutzer keine eigene Reihenfolge einstellen."
 },
 "nplurals=2; plural=(n != 1);");
