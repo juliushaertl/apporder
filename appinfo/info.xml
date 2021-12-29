@@ -1,6 +1,5 @@
-<?xml version="1.0"?>
-<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
-      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+<?xml version="1.0" encoding="utf-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
     <id>apporder</id>
     <name>AppOrder</name>
     <summary>Sort apps in the menu with drag and drop</summary>
@@ -10,19 +9,19 @@ user individually. Administrators can define a custom default order.
 
 ## Set a default order for all new users
 
-Go to the Admin settings > Additional settings and drag the icons under App order.
+Go to the Admin settings &gt; Additional settings and drag the icons under App order.
 
 ## Use first app as default app
 
 You can easily let Nextcloud redirect your user to the first app in their
 personal order by changing the following parameter in your config/config.php:
 
-    'defaultapp' => 'apporder',
+    'defaultapp' =&gt; 'apporder',
 
 Users will now get redirected to the first app of the default order or to the
 first app of the user order.
     </description>
-    <version>0.13.0</version>
+    <version>0.14.0</version>
     <licence>agpl</licence>
     <author mail="jus@bitgrid.net">Julius Härtl</author>
     <namespace>AppOrder</namespace>
@@ -31,7 +30,7 @@ first app of the user order.
     <repository type="git">https://github.com/juliushaertl/apporder.git</repository>
     <screenshot>https://download.bitgrid.net/nextcloud/apporder/apporder.png</screenshot>
     <dependencies>
-        <nextcloud min-version="20" max-version="22" />
+        <nextcloud min-version="20" max-version="23"/>
     </dependencies>
     <settings>
         <admin>OCA\AppOrder\Settings\AdminSettings</admin>
@@ -40,4 +39,3 @@ first app of the user order.
         <personal-section>OCA\AppOrder\Settings\Section</personal-section>
     </settings>
 </info>
-
