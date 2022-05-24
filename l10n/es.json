@@ -8,5 +8,5 @@
     "Drag the app icons to change their order." : "Arrastra los iconos de las aplicaciones para cambiar el orden.",
     "Force the default order for all users:" : "Forzar orden para todos los usuarios:",
     "If enabled, users will not be able to set a custom order." : "Si se activa, los usuarios no podrán personalizar el orden de las apps."
-},"pluralForm" :"nplurals=2; plural=(n != 1);"
+},"pluralForm" :"nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;"
 }

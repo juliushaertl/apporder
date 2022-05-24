@@ -11,4 +11,4 @@ OC.L10N.register(
     "Force the default order for all users:" : "Forza l'ordine predefinito per tutti gli utenti:",
     "If enabled, users will not be able to set a custom order." : "Se abilitata, gli utenti non potranno impostare un ordine personalizzato."
 },
-"nplurals=2; plural=(n != 1);");
+"nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");

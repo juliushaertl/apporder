@@ -11,4 +11,4 @@ OC.L10N.register(
     "Force the default order for all users:" : "Forzar orden para todos los usuarios:",
     "If enabled, users will not be able to set a custom order." : "Si se activa, los usuarios no podrán personalizar el orden de las apps."
 },
-"nplurals=2; plural=(n != 1);");
+"nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");
