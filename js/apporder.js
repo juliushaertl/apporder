@@ -42,7 +42,7 @@ $(function () {
 			hidden = [];
 		}
 
-		if (order.length === 0) {
+		if (order.length === 0 && hidden.length === 0) {
 			app_menu.css('opacity', '1');
 			return;
 		}
