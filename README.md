@@ -10,7 +10,7 @@ order.
 
 ## Set a default order for all new users
 
-Go to the Admin settings > Additional settings and drag the icons under App order.
+Go to the Settings > Administration > Additional settings and drag the icons under App order.
 
 ## Use first app as default app
 
