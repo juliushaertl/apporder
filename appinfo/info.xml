@@ -4,22 +4,19 @@
     <name>AppOrder</name>
     <summary>Sort apps in the menu with drag and drop</summary>
     <description>
-Enable sorting the app icons from the personal settings. The order will be saved for each
-user individually. Administrators can define a custom default order.
+Enable sorting the app icons from the personal settings. The order will be saved for each user individually. Administrators can define a custom default order.
 
 ## Set a default order for all new users
 
-Go to the Admin settings &gt; Additional settings and drag the icons under App order.
+Go to the Settings &gt; Administration &gt; Additional settings and drag the icons under App order.
 
 ## Use first app as default app
 
-You can easily let Nextcloud redirect your user to the first app in their
-personal order by changing the following parameter in your config/config.php:
+You can easily let Nextcloud redirect your user to the first app in their personal order by changing the following parameter in your config/config.php:
 
     'defaultapp' =&gt; 'apporder',
 
-Users will now get redirected to the first app of the default order or to the
-first app of the user order.
+Users will now get redirected to the first app of the default order or to the first app of the user order.
     </description>
     <version>0.15.0</version>
     <licence>agpl</licence>
