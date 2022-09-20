@@ -4,6 +4,11 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/juliushaertl/apporder/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/juliushaertl/apporder/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/juliushaertl/apporder/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/juliushaertl/apporder/?branch=master)
 
+> **Warning**
+>
+> Due to server changes this app will no longer be compatible with Nextcloud 25 and is considered unmaintained from now on. 
+> For introducing the functionality upstream please follow https://github.com/nextcloud/server/issues/4917
+
 Enable sorting the app icons from the personal settings. The order will be 
 saved for each user individually. Administrators can define a custom default 
 order.
